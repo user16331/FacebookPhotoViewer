@@ -12,6 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// Application main window
     var window: UIWindow?
 
+    override init() {
+        super.init()
+        
+        ApplicationController.shared.applicationDelegate = self
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 

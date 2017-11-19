@@ -13,24 +13,32 @@ internal class AlbumListTableCell: UITableViewCell {
     /// Label with album name
     @IBOutlet private weak var nameLabel: UILabel!
 
+    /// Context of the last executing FBGetPhotoThumbnailRequest
+    private var lastRequestContext: NSObject?
+
     /// Facebook album displayed in the cell
     internal var album: FBAlbum? {
         didSet {
             self.nameLabel.text = album?.name
 
             if let photoId = album?.coverPhotoId {
+                let currentRequestContext = NSObject()
+                self.lastRequestContext = currentRequestContext
+
                 FBGetPhotoThumbnailRequest(photoId: photoId).execute({ (image, error) in
                     DispatchQueue.main.async {
-                        guard let image = image, error == nil else {
-                            self.coverPhotoImageView.image = UIImage.assetPlaceholder
-                            return
+                        if self.lastRequestContext === currentRequestContext {
+                            if let image = image, error == nil {
+                                self.coverPhotoImageView.image = image
+                            } else {
+                                self.coverPhotoImageView.image = UIImage.assetPlaceholder
+                            }
                         }
-
-                        self.coverPhotoImageView.image = image
                     }
                 })
             } else {
                 self.coverPhotoImageView.image = UIImage.assetPlaceholder
+                self.lastRequestContext = nil
             }
         }
     }

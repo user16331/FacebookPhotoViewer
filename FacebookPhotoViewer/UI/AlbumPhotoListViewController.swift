@@ -13,24 +13,32 @@ internal class AlbumPhotoListTableCell: UITableViewCell {
     /// UIImageView with photo name
     @IBOutlet private weak var nameLabel: UILabel!
 
+    /// Context of the last executing FBGetPhotoThumbnailRequest
+    private var lastRequestContext: NSObject?
+
     /// Facebook photo displayed in the cell
     internal var photo: FBPhoto? {
         didSet {
             self.nameLabel.text = photo?.name
 
             if let photoId = photo?.id {
+                let currentRequestContext = NSObject()
+                self.lastRequestContext = currentRequestContext
+                
                 FBGetPhotoThumbnailRequest(photoId: photoId).execute({ (image, error) in
                     DispatchQueue.main.async {
-                        guard let image = image, error == nil else {
-                            self.thumbnailImageView.image = UIImage.assetPlaceholder
-                            return
+                        if self.lastRequestContext === currentRequestContext {
+                            if let image = image, error == nil {
+                                self.thumbnailImageView.image = image
+                            } else {
+                                self.thumbnailImageView.image = UIImage.assetPlaceholder
+                            }
                         }
-
-                        self.thumbnailImageView.image = image
                     }
                 })
             } else {
                 self.thumbnailImageView.image = UIImage.assetPlaceholder
+                self.lastRequestContext = nil
             }
         }
     }
@@ -76,16 +84,7 @@ internal class AlbumPhotoListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let photo = self.photos[indexPath.row]
-
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        FBGetPhotoRequest(photoId: photo.id).execute { (image, error) in
-            DispatchQueue.main.async {
-                UIApplication.shared.endIgnoringInteractionEvents()
-                if let image = image {
-                    ApplicationController.shared.openImageInFullscreen(image)
-                }
-            }
-        }
+        ApplicationController.shared.openPhotoInFullscreen(photoId: photo.id)
     }
 
     /// Reload Facebook photoss list in the table

@@ -19,7 +19,7 @@
 		117BAE211FBD4FB700C9DE88 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 117BAE0C1FBD4FB600C9DE88 /* Localizable.strings */; };
 		117BAE221FBD4FB700C9DE88 /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BAE0E1FBD4FB700C9DE88 /* AlbumListViewController.swift */; };
 		117BAE231FBD4FB700C9DE88 /* AlbumPhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BAE0F1FBD4FB700C9DE88 /* AlbumPhotoListViewController.swift */; };
-		117BAE241FBD4FB700C9DE88 /* FullscreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BAE101FBD4FB700C9DE88 /* FullscreenImageViewController.swift */; };
+		117BAE241FBD4FB700C9DE88 /* FullscreenPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BAE101FBD4FB700C9DE88 /* FullscreenPhotoViewController.swift */; };
 		117BAE251FBD4FB700C9DE88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BAE111FBD4FB700C9DE88 /* LoginViewController.swift */; };
 		117BAE281FBD4FB700C9DE88 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BAE151FBD4FB700C9DE88 /* UIImage+Assets.swift */; };
 		117BAE291FBD4FB700C9DE88 /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BAE161FBD4FB700C9DE88 /* ApplicationController.swift */; };
@@ -61,7 +61,7 @@
 		117BAE0C1FBD4FB600C9DE88 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		117BAE0E1FBD4FB700C9DE88 /* AlbumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListViewController.swift; sourceTree = "<group>"; };
 		117BAE0F1FBD4FB700C9DE88 /* AlbumPhotoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumPhotoListViewController.swift; sourceTree = "<group>"; };
-		117BAE101FBD4FB700C9DE88 /* FullscreenImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewController.swift; sourceTree = "<group>"; };
+		117BAE101FBD4FB700C9DE88 /* FullscreenPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenPhotoViewController.swift; sourceTree = "<group>"; };
 		117BAE111FBD4FB700C9DE88 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		117BAE151FBD4FB700C9DE88 /* UIImage+Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
 		117BAE161FBD4FB700C9DE88 /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				117BAE121FBD4FB700C9DE88 /* Storyboard */,
 				117BAE0E1FBD4FB700C9DE88 /* AlbumListViewController.swift */,
 				117BAE0F1FBD4FB700C9DE88 /* AlbumPhotoListViewController.swift */,
-				117BAE101FBD4FB700C9DE88 /* FullscreenImageViewController.swift */,
+				117BAE101FBD4FB700C9DE88 /* FullscreenPhotoViewController.swift */,
 				117BAE111FBD4FB700C9DE88 /* LoginViewController.swift */,
 				117BAE151FBD4FB700C9DE88 /* UIImage+Assets.swift */,
 			);
@@ -391,7 +391,7 @@
 				117BAE2B1FBD4FB700C9DE88 /* FBPhoto.swift in Sources */,
 				117BAE1E1FBD4FB700C9DE88 /* FBGetPhotoThumbnailRequest.swift in Sources */,
 				117BAE221FBD4FB700C9DE88 /* AlbumListViewController.swift in Sources */,
-				117BAE241FBD4FB700C9DE88 /* FullscreenImageViewController.swift in Sources */,
+				117BAE241FBD4FB700C9DE88 /* FullscreenPhotoViewController.swift in Sources */,
 				117BAE281FBD4FB700C9DE88 /* UIImage+Assets.swift in Sources */,
 				117BAE1D1FBD4FB700C9DE88 /* FBGetPhotoRequest.swift in Sources */,
 			);
